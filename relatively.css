@@ -1,0 +1,202 @@
+
+/* Collection of classes for placing relative elements */
+
+/* prepare css */
+ 
+ html,body {
+  height:100%;margin:0;padding:0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:link, a:visited {background-color: transparent;text-decoration: none;}
+
+/* background colors */
+.bgred {background:red;}
+.bgorange {background:orange;}
+.bggold {background:gold;}
+.bgyellow {background:yellow;}
+.bgblack {background:black;}
+.bgwhitesmoke {background:whitesmoke;}
+.bgwhite {background:white;}
+.bgtransparent {background:transparent;}
+
+
+/* full window div */
+
+.fullwindow {
+	display: block;position: relative; height:100%; min-height:100%;/*for mozilla*/
+	height:auto;
+	overflow: hidden;
+}
+.filler {position:absolute;top:0;left:0;width:100%;height:100%;}
+
+
+
+
+/* XWYP Positioning System ( X - Width - Y - Proportion ) */
+.XW {
+	display:block;position:absolute;height:100%;
+	width:33%;
+	/*left:0%; /* set left or right */
+}
+.YP {
+	display:block;position: absolute;width: 100%;height:0;
+	padding-top:100%; /* (outer!) width to height ratio */
+	/*top:12%; /* set top or bottom */
+}
+/* Origin to element center */
+.Xcenter {transform:translate(-50%,0);}
+.Ycenter {transform:translate(0,-50%);}
+
+
+
+/* divide vertical / horizontal */
+.divide_vertical {
+	position:relative;display:block;
+	width: 100%;height:33.3333%;
+}
+.divide_horizontal {
+	position:relative;display:inline-block;
+	width: 33.333%;height:100%;
+	margin:0;float:left; /* ??? */
+}
+
+
+/* centering divs  */
+.center_all {
+	display:block;position:absolute;
+	top:50%; left:50%;
+	transform: translate( -50%, -50%);
+}
+.center_top {
+	display:block;position:absolute;
+	top:0; left:50%;
+	transform: translate( -50%, 0);
+}
+.center_bottom {
+	display:block;position:absolute;
+	bottom:0; left:50%;
+	transform: translate( -50%, 0);
+}
+.center_left {
+	display:block;position:absolute;
+	top:50%; left:0;
+	transform: translate( 0, -50%);
+}
+.center_right {
+	display:block;position:absolute;
+	top:50%; right:0;
+	transform: translate( 0, -50%);
+}
+
+
+/* center text vertically */
+.centertext_all {
+	width: 100%;height: 100%;
+	position: relative;display: block;
+}
+.centertext_all p, .centertext_all h {  /* only h works ?? */
+	margin: 0;position: absolute;
+	top: 50%;left: 50%;
+	transform: translate(-50%, -50%);
+}
+.centertext_left {
+	width: 100%;height: 100%;
+	position: relative;display: block;
+}
+.centertext_left h, .centertext_left p {
+	margin: 0;position: absolute;
+	top: 50%;left: 0;
+	transform: translate(0, -50%);
+}
+.simpletext {    /* reset the centered text properties ! */
+	width: 100%;height: 100%;
+	position: absolute;display: block;
+}
+.simpletext h, .simpletext p {
+	margin: 0;position: absolute;
+	top: auto;left: auto;
+	transform: translate(0, 0);
+}
+
+
+/* fixed aspect ratio div */
+.aspect-ratio {
+	display:block;
+	position: relative;
+	width:100%;height: 0;
+	padding-top:89%; /* width to height ratio */
+	overflow:visible;
+}
+.aspect-ratio-inside {
+	  position: absolute;
+	  top: 0;left: 0;
+	  width: 100%;height: 100%;
+}
+
+
+/* full width / full height images */
+/* top oriented / centered */
+.image_fullheight {
+	display: block;position: absolute;
+	width: 100%;height: 100%;
+	right: 0;bottom: 0;top:0;left:0;margin:auto auto;
+}
+.image_fullheight img {
+	position:absolute;
+	width:auto;height:100%;
+	object-fit: cover;
+	/*	centered */
+	left: 50%;transform:translateX(-50%);
+    /*max-height: 100%;*/
+}
+.image_fullwidth {
+	display: block;position:absolute; overflow:visible;
+	width: 100%; 
+	height: 0; /* centered */
+}
+.image_fullwidth img {
+	width:100%;height:auto;
+	object-fit: cover;
+	top:50%;transform:translateY(-50%);	/* centered */
+}
+
+
+
+.image_focal_outer {position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;} /*filler with overflow:hidden */
+.image_focal {
+	display:block;position:absolute;
+	width:100%;height:100%; 
+	background-size: cover;
+	background-position: center center;
+	
+	/*width:150%; left:-50%; background-position:66% 50%; /*  or right:0   	focus on 2/3 (66%) of w, as long as (div-ratio >  66% image-ratio)  */
+	/*width:160%; left:-55%; height:150%; top:0; background-position: 66% 33%; */
+	/*width:160%; left:-50%; /*  or right:-10%; 	focus on 3/5 (60%) of w, as long as (div-ratio > 60% image-ratio)  */
+	/*width:200%; left:-100%; /* or right:0;  	focus on 3/4 (75%) of w, as long as (div-ratio > 75% image-ratio)  */
+	/*height:120%; width:150%; top:-10%; left:-50%; /* or right:0;  	focus on 3/4 (75%) of w, as long as (div-ratio > 75% image-ratio)  */
+	
+}
+
+
+
+/* full cover video box */
+.video_cover {
+	display:block;position:absolute;width:100%;height:100%;
+	/* z-index:-1; */
+}
+.video_cover video {
+	width: 100%;height: 100%;
+	object-fit:cover;
+	-webkit-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+/* hide video controls 
+video::-webkit-media-controls {
+	 display:none !important;
+}*/
+
+
+
