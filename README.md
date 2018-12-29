@@ -1,2 +1,2 @@
-# relatively.css
-Collection of CSS classes to place window width relative elements.
+# absolutely.css
+Collection of CSS classes to place absolute elements.
